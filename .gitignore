@@ -1,0 +1,13 @@
+# Visual Studio
+.vs/
+bin/
+obj/
+
+# Node modules
+pos-frontend/node_modules/
+pos-frontend/dist/
+
+# Build outputs
+*.user
+*.suo
+*.cache
