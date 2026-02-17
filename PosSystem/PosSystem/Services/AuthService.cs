@@ -1,4 +1,4 @@
-﻿using BCrypt.Net;
+﻿        using BCrypt.Net;
 using Microsoft.IdentityModel.Tokens;
 using PosSystem.Models;
 using PosSystem.Repositories;

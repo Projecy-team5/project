@@ -1,0 +1,8 @@
+@media print {
+    @page {
+      size: 80mm 1000mm;  /* Adjust height as needed; thermal rolls are continuous */
+      margin: 5mm;
+    }
+    body { margin: 0; }
+    /* Hide everything except receipt */
+  }

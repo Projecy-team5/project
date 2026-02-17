@@ -1,7 +1,13 @@
 import * as React from "react"
 import { cn } from "@/lib/utils"
 
-const Select = React.forwardRef(({ className, children, ...props }, ref) => {
+const Select = React.forwardRef(({ className, children, onValueChange, value, ...props }, ref) => {
+  const handleChange = (e) => {
+    if (onValueChange) {
+      onValueChange(e.target.value)
+    }
+  }
+  
   return (
     <select
       className={cn(
@@ -9,6 +15,8 @@ const Select = React.forwardRef(({ className, children, ...props }, ref) => {
         className
       )}
       ref={ref}
+      value={value}
+      onChange={handleChange}
       {...props}
     >
       {children}
@@ -17,4 +25,31 @@ const Select = React.forwardRef(({ className, children, ...props }, ref) => {
 })
 Select.displayName = "Select"
 
-export { Select }
+const SelectTrigger = React.forwardRef(({ className, children, ...props }, ref) => (
+  <Select ref={ref} className={cn(className)} {...props}>
+    {children}
+  </Select>
+))
+SelectTrigger.displayName = "SelectTrigger"
+
+const SelectValue = ({ placeholder, ...props }) => {
+  // This is handled by the parent Select
+  return <span {...props}>{placeholder}</span>
+}
+SelectValue.displayName = "SelectValue"
+
+const SelectContent = ({ children, className, ...props }) => (
+  <div className={cn(className)} {...props}>
+    {children}
+  </div>
+)
+SelectContent.displayName = "SelectContent"
+
+const SelectItem = React.forwardRef(({ children, className, value, ...props }, ref) => (
+  <option ref={ref} className={cn(className)} value={value} {...props}>
+    {children}
+  </option>
+))
+SelectItem.displayName = "SelectItem"
+
+export { Select, SelectTrigger, SelectValue, SelectContent, SelectItem }

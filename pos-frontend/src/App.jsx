@@ -7,6 +7,7 @@ import POS from './pages/POS';
 import Orders from './pages/Orders'; 
 import Shifts from './pages/Shifts'
 import Categories from './pages/Categories';
+import Users from './pages/Users'
 
 function App() {
   return (
@@ -51,6 +52,7 @@ function App() {
                 </ProtectedRoute>
             }
         />
+        
         <Route
             path="/categories"
             element={
@@ -59,10 +61,17 @@ function App() {
                 </ProtectedRoute>
             }
         />
+        <Route
+        path="/users"
+        element={
+            <ProtectedRoute>
+            <Users />
+            </ProtectedRoute>
+        }
+        />
       </Routes>
+      
     </BrowserRouter>
-    
   );
 }
-
 export default App;
