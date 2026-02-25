@@ -20,7 +20,7 @@ const Layout = ({ children }) => {
         { path: '/pos', label: 'POS', icon: ShoppingCart },
         { path: '/orders', label: 'Orders', icon: Clock },
         { path: '/categories', label: 'Categories',icon : Folder },
-        { path: '/customers', label: 'Customers', icon: Users },
+        { path: '/users', label: 'Users', icon: Users },
         { path: '/shifts', label: 'Shifts', icon: Wallet },
     ];
 
